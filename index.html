@@ -4,267 +4,285 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>S.B. Surjith — PHP Developer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- PRELOADER -->
-  <div id="preloader">
-    <div class="pre-inner">
-      <span class="pre-name">SBS</span>
-      <div class="pre-bar"><div class="pre-fill"></div></div>
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-name">SBS</div>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar-fill" id="loaderFill"></div>
     </div>
+    <div class="loader-pct" id="loaderPct">0%</div>
   </div>
 
   <!-- CURSOR -->
-  <div class="cursor-dot" id="cursorDot"></div>
-  <div class="cursor-trail" id="cursorTrail"></div>
+  <div id="cur"></div>
+  <div id="curRing"></div>
 
-  <!-- NAV -->
-  <nav id="navbar">
-    <a href="#hero" class="nav-brand">
-      <span class="brand-initials">SB.</span>
-      <span class="brand-name">Surjith</span>
-    </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#about" data-num="01">About</a></li>
-      <li><a href="#skills" data-num="02">Skills</a></li>
-      <li><a href="#experience" data-num="03">Work</a></li>
-      <li><a href="#projects" data-num="04">Projects</a></li>
-      <li><a href="#contact" data-num="05">Contact</a></li>
-    </ul>
-    <a href="mailto:surjithsbsam1999@gmail.com" class="nav-hire">Hire Me →</a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-      <span></span><span></span>
-    </button>
-  </nav>
-
-  <!-- MOBILE DRAWER -->
-  <div class="drawer-overlay" id="drawerOverlay"></div>
-  <div class="drawer" id="drawer">
-    <button class="drawer-close" id="drawerClose">✕</button>
-    <nav class="drawer-nav">
-      <a href="#about" class="drawer-link">About</a>
-      <a href="#skills" class="drawer-link">Skills</a>
-      <a href="#experience" class="drawer-link">Work</a>
-      <a href="#projects" class="drawer-link">Projects</a>
-      <a href="#contact" class="drawer-link">Contact</a>
+  <!-- HEADER -->
+  <header id="header">
+    <nav class="nav-wrap">
+      <a href="#hero" class="logo">SB<em>.</em></a>
+      <ul class="nav-list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="mailto:surjithsbsam1999@gmail.com" class="nav-cta">Hire Me ↗</a>
+      <button id="burger" class="burger" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
     </nav>
-    <div class="drawer-contact">
-      <a href="tel:9943605967">+91 99436 05967</a>
-      <a href="mailto:surjithsbsam1999@gmail.com">surjithsbsam1999@gmail.com</a>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="mOverlay" class="m-overlay"></div>
+  <div id="mMenu" class="m-menu">
+    <button id="mClose" class="m-close">✕</button>
+    <a href="#about"      class="m-link">About</a>
+    <a href="#skills"     class="m-link">Skills</a>
+    <a href="#experience" class="m-link">Experience</a>
+    <a href="#projects"   class="m-link">Projects</a>
+    <a href="#education"  class="m-link">Education</a>
+    <a href="#contact"    class="m-link">Contact</a>
+    <div class="m-foot">
+      <span>+91 9943605967</span>
+      <span>surjithsbsam1999@gmail.com</span>
     </div>
   </div>
 
-  <!-- ═══ HERO ═══ -->
+  <!-- ════════════ HERO ════════════ -->
   <section id="hero">
-    <div class="hero-deco-line left"></div>
-    <div class="hero-deco-line right"></div>
-    <div class="hero-grid-overlay"></div>
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-wrap">
 
-    <div class="hero-content">
-      <div class="hero-eyebrow">
-        <span class="eyebrow-line"></span>
-        PHP Developer · Laravel · Full-Stack
-        <span class="eyebrow-line"></span>
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Available for work
       </div>
-      <h1 class="hero-heading">
-        <span class="h-line" data-delay="0">Crafting</span>
-        <span class="h-line italic" data-delay="1">Exceptional</span>
-        <span class="h-line" data-delay="2">Web Experiences</span>
+
+      <h1 class="hero-h1">
+        <span class="hl" style="--i:0">S.B. Surjith</span>
       </h1>
-      <p class="hero-sub">
-        I'm <strong>S.B. Surjith</strong>, a PHP developer with 3+ years building dynamic applications with Laravel, PostgreSQL, and modern front-end stacks.
+
+      <p class="hero-role">
+        <span id="typeEl"></span><span class="tcursor">|</span>
       </p>
-      <div class="hero-cta-group">
-        <a href="#projects" class="cta-primary">Explore Work</a>
-        <a href="#contact" class="cta-ghost">Let's Connect</a>
-      </div>
-    </div>
 
-    <div class="hero-scroll-hint">
-      <div class="scroll-line"></div>
-      <span>Scroll</span>
-    </div>
+      <p class="hero-desc">
+        PHP Developer &middot; Laravel Expert &middot; Full-Stack Engineer<br>
+        3+ years building enterprise-grade web applications.
+      </p>
 
-    <div class="hero-stats-bar">
-      <div class="hstat">
-        <span class="hstat-n">3<sup>+</sup></span>
-        <span class="hstat-l">Years Experience</span>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-primary">View My Work</a>
+        <a href="#contact"  class="btn-outline">Get In Touch</a>
       </div>
-      <div class="hstat-sep"></div>
-      <div class="hstat">
-        <span class="hstat-n">2</span>
-        <span class="hstat-l">Major Projects</span>
+
+      <div class="hero-stats">
+        <div class="hstat">
+          <span class="hstat-n" data-target="3" data-suffix="+">0</span>
+          <span class="hstat-l">Years Exp</span>
+        </div>
+        <div class="hstat-sep"></div>
+        <div class="hstat">
+          <span class="hstat-n" data-target="2">0</span>
+          <span class="hstat-l">Projects</span>
+        </div>
+        <div class="hstat-sep"></div>
+        <div class="hstat">
+          <span class="hstat-n" data-target="12" data-suffix="+">0</span>
+          <span class="hstat-l">Technologies</span>
+        </div>
+        <div class="hstat-sep"></div>
+        <div class="hstat">
+          <span class="hstat-n" data-target="100" data-suffix="%">0</span>
+          <span class="hstat-l">Dedication</span>
+        </div>
       </div>
-      <div class="hstat-sep"></div>
-      <div class="hstat">
-        <span class="hstat-n">12<sup>+</sup></span>
-        <span class="hstat-l">Technologies</span>
-      </div>
-      <div class="hstat-sep"></div>
-      <div class="hstat">
-        <span class="hstat-n">∞</span>
-        <span class="hstat-l">Lines of Code</span>
-      </div>
+
+    </div>
+    <div class="hero-scroll">
+      <div class="hs-line"></div>
+      <span>scroll</span>
     </div>
   </section>
 
-  <!-- ═══ ABOUT ═══ -->
+  <!-- ════════════ ABOUT ════════════ -->
   <section id="about">
     <div class="container">
-      <div class="about-layout">
-        <div class="about-left reveal">
-          <div class="section-tag">/ About Me</div>
-          <h2 class="section-heading">A Developer<br /><em>Driven by Logic</em></h2>
-          <div class="about-portrait">
-            <div class="portrait-frame">
-              <div class="portrait-initials">SBS</div>
-              <div class="portrait-ring"></div>
-            </div>
-            <div class="portrait-label">
-              <span>Kanya Kumari, Tamil Nadu</span>
-              <span class="available-dot">● Available</span>
-            </div>
+      <div class="sec-label">01 — About</div>
+      <div class="about-grid">
+
+        <div class="about-left">
+          <h2 class="sec-heading reveal">A Developer<br><em>Driven by Logic</em></h2>
+          <p class="about-p reveal">Highly skilled PHP developer with 3+ years crafting dynamic web applications. My MSc in Mathematics shapes how I think — precise, analytical, always seeking the most elegant solution.</p>
+          <p class="about-p reveal">Currently at <strong>Elroi Software Solution</strong>, I architect enterprise platforms — a cloud accounting system and a full CRM solution — from the ground up using Laravel and modern front-end stacks.</p>
+          <div class="about-tags reveal">
+            <span>Clean Code</span>
+            <span>Team Player</span>
+            <span>Problem Solver</span>
+            <span>Fast Learner</span>
+            <span>Detail Oriented</span>
           </div>
         </div>
+
         <div class="about-right reveal">
-          <p class="about-lead">Highly skilled PHP developer with a mathematical mind and a passion for clean architecture.</p>
-          <p class="about-body">With an MSc in Mathematics, I approach every problem analytically — breaking it down, finding the most elegant solution, and building it to last. At <strong>Elroi Software Solution</strong>, I've architected enterprise-grade accounting and CRM platforms from scratch.</p>
-          <p class="about-body">I thrive at the intersection of backend robustness and frontend polish, using Laravel for solid APIs and React/JavaScript for engaging interfaces.</p>
-          <div class="about-pills">
-            <span class="pill">Clean Code</span>
-            <span class="pill">Team Player</span>
-            <span class="pill">Problem Solver</span>
-            <span class="pill">Detail Oriented</span>
-            <span class="pill">Fast Learner</span>
+          <div class="profile-card">
+            <div class="pc-top">
+              <div class="pc-avatar">
+                <span>SBS</span>
+                <div class="pc-ring"></div>
+                <div class="pc-scan"></div>
+              </div>
+            </div>
+            <div class="pc-rows">
+              <div class="pc-row">
+                <span class="pk">Role</span>
+                <span class="pv">PHP Developer</span>
+              </div>
+              <div class="pc-row">
+                <span class="pk">Experience</span>
+                <span class="pv">3+ Years</span>
+              </div>
+              <div class="pc-row">
+                <span class="pk">Location</span>
+                <span class="pv">Kanya Kumari, TN</span>
+              </div>
+              <div class="pc-row">
+                <span class="pk">Status</span>
+                <span class="pv available">● Available</span>
+              </div>
+              <div class="pc-row">
+                <span class="pk">Languages</span>
+                <span class="pv">English · Tamil · Malayalam</span>
+              </div>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ═══ SKILLS ═══ -->
+  <!-- ════════════ SKILLS ════════════ -->
   <section id="skills">
-    <div class="skills-bg-text">SKILLS</div>
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-tag">/ Technical Stack</div>
-        <h2 class="section-heading">What I Work With</h2>
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <span>PHP</span><span>·</span><span>Laravel</span><span>·</span>
+        <span>JavaScript</span><span>·</span><span>React</span><span>·</span>
+        <span>PostgreSQL</span><span>·</span><span>MySQL</span><span>·</span>
+        <span>jQuery</span><span>·</span><span>REST API</span><span>·</span>
+        <span>Bootstrap</span><span>·</span><span>Ajax</span><span>·</span>
+        <span>Git</span><span>·</span><span>HTML / CSS</span><span>·</span>
+        <span>PHP</span><span>·</span><span>Laravel</span><span>·</span>
+        <span>JavaScript</span><span>·</span><span>React</span><span>·</span>
+        <span>PostgreSQL</span><span>·</span><span>MySQL</span><span>·</span>
+        <span>jQuery</span><span>·</span><span>REST API</span><span>·</span>
+        <span>Bootstrap</span><span>·</span><span>Ajax</span><span>·</span>
+        <span>Git</span><span>·</span><span>HTML / CSS</span><span>·</span>
       </div>
-      <div class="skills-categories">
+    </div>
+    <div class="container">
+      <div class="sec-label">02 — Skills</div>
+      <h2 class="sec-heading reveal">Technical <em>Stack</em></h2>
+      <div class="skills-grid">
 
-        <div class="skill-cat reveal">
-          <div class="cat-label">Backend</div>
-          <div class="cat-items">
-            <div class="skill-item" data-level="95">
-              <div class="si-header">
-                <span class="si-icon">🐘</span>
-                <span class="si-name">PHP</span>
-                <span class="si-pct">95%</span>
-              </div>
-              <div class="si-bar"><div class="si-fill" data-w="95"></div></div>
+        <div class="sk-card reveal">
+          <div class="sk-cat">Backend</div>
+          <div class="sk-rows">
+            <div class="sk-row">
+              <span class="sk-name">PHP</span>
+              <div class="sk-bar"><div class="sk-fill" data-w="95"></div></div>
+              <span class="sk-pct">95%</span>
             </div>
-            <div class="skill-item" data-level="90">
-              <div class="si-header">
-                <span class="si-icon">🔴</span>
-                <span class="si-name">Laravel</span>
-                <span class="si-pct">90%</span>
-              </div>
-              <div class="si-bar"><div class="si-fill" data-w="90"></div></div>
+            <div class="sk-row">
+              <span class="sk-name">Laravel</span>
+              <div class="sk-bar"><div class="sk-fill" data-w="90"></div></div>
+              <span class="sk-pct">90%</span>
             </div>
-            <div class="skill-item" data-level="85">
-              <div class="si-header">
-                <span class="si-icon">🌐</span>
-                <span class="si-name">Web API / REST</span>
-                <span class="si-pct">85%</span>
-              </div>
-              <div class="si-bar"><div class="si-fill" data-w="85"></div></div>
+            <div class="sk-row">
+              <span class="sk-name">REST API</span>
+              <div class="sk-bar"><div class="sk-fill" data-w="85"></div></div>
+              <span class="sk-pct">85%</span>
             </div>
           </div>
         </div>
 
-        <div class="skill-cat reveal">
-          <div class="cat-label">Database</div>
-          <div class="cat-items">
-            <div class="skill-item">
-              <div class="si-header">
-                <span class="si-icon">🐘</span>
-                <span class="si-name">PostgreSQL</span>
-                <span class="si-pct">88%</span>
-              </div>
-              <div class="si-bar"><div class="si-fill" data-w="88"></div></div>
+        <div class="sk-card reveal">
+          <div class="sk-cat">Database</div>
+          <div class="sk-rows">
+            <div class="sk-row">
+              <span class="sk-name">PostgreSQL</span>
+              <div class="sk-bar"><div class="sk-fill" data-w="88"></div></div>
+              <span class="sk-pct">88%</span>
             </div>
-            <div class="skill-item">
-              <div class="si-header">
-                <span class="si-icon">🐬</span>
-                <span class="si-name">MySQL</span>
-                <span class="si-pct">90%</span>
-              </div>
-              <div class="si-bar"><div class="si-fill" data-w="90"></div></div>
+            <div class="sk-row">
+              <span class="sk-name">MySQL</span>
+              <div class="sk-bar"><div class="sk-fill" data-w="90"></div></div>
+              <span class="sk-pct">90%</span>
             </div>
           </div>
         </div>
 
-        <div class="skill-cat reveal">
-          <div class="cat-label">Frontend</div>
-          <div class="cat-items">
-            <div class="skill-item">
-              <div class="si-header">
-                <span class="si-icon">⚡</span>
-                <span class="si-name">JavaScript / jQuery</span>
-                <span class="si-pct">85%</span>
-              </div>
-              <div class="si-bar"><div class="si-fill" data-w="85"></div></div>
+        <div class="sk-card reveal">
+          <div class="sk-cat">Frontend</div>
+          <div class="sk-rows">
+            <div class="sk-row">
+              <span class="sk-name">JavaScript</span>
+              <div class="sk-bar"><div class="sk-fill" data-w="85"></div></div>
+              <span class="sk-pct">85%</span>
             </div>
-            <div class="skill-item">
-              <div class="si-header">
-                <span class="si-icon">⚛️</span>
-                <span class="si-name">React</span>
-                <span class="si-pct">75%</span>
-              </div>
-              <div class="si-bar"><div class="si-fill" data-w="75"></div></div>
+            <div class="sk-row">
+              <span class="sk-name">React</span>
+              <div class="sk-bar"><div class="sk-fill" data-w="75"></div></div>
+              <span class="sk-pct">75%</span>
             </div>
-            <div class="skill-item">
-              <div class="si-header">
-                <span class="si-icon">🏗️</span>
-                <span class="si-name">HTML / CSS / Bootstrap</span>
-                <span class="si-pct">90%</span>
-              </div>
-              <div class="si-bar"><div class="si-fill" data-w="90"></div></div>
+            <div class="sk-row">
+              <span class="sk-name">HTML / CSS</span>
+              <div class="sk-bar"><div class="sk-fill" data-w="92"></div></div>
+              <span class="sk-pct">92%</span>
             </div>
-            <div class="skill-item">
-              <div class="si-header">
-                <span class="si-icon">🔀</span>
-                <span class="si-name">Ajax</span>
-                <span class="si-pct">80%</span>
-              </div>
-              <div class="si-bar"><div class="si-fill" data-w="80"></div></div>
+            <div class="sk-row">
+              <span class="sk-name">Bootstrap</span>
+              <div class="sk-bar"><div class="sk-fill" data-w="88"></div></div>
+              <span class="sk-pct">88%</span>
+            </div>
+            <div class="sk-row">
+              <span class="sk-name">jQuery / Ajax</span>
+              <div class="sk-bar"><div class="sk-fill" data-w="83"></div></div>
+              <span class="sk-pct">83%</span>
             </div>
           </div>
         </div>
 
-        <div class="skill-cat reveal">
-          <div class="cat-label">Tools</div>
-          <div class="cat-items">
-            <div class="skill-item">
-              <div class="si-header">
-                <span class="si-icon">🌿</span>
-                <span class="si-name">Git</span>
-                <span class="si-pct">85%</span>
-              </div>
-              <div class="si-bar"><div class="si-fill" data-w="85"></div></div>
+        <div class="sk-card reveal">
+          <div class="sk-cat">Tools & Other</div>
+          <div class="sk-rows">
+            <div class="sk-row">
+              <span class="sk-name">Git</span>
+              <div class="sk-bar"><div class="sk-fill" data-w="85"></div></div>
+              <span class="sk-pct">85%</span>
             </div>
-            <div class="skill-item">
-              <div class="si-header">
-                <span class="si-icon">📊</span>
-                <span class="si-name">MS Office / Tally Prime</span>
-                <span class="si-pct">80%</span>
-              </div>
-              <div class="si-bar"><div class="si-fill" data-w="80"></div></div>
+            <div class="sk-row">
+              <span class="sk-name">MS Office</span>
+              <div class="sk-bar"><div class="sk-fill" data-w="80"></div></div>
+              <span class="sk-pct">80%</span>
+            </div>
+            <div class="sk-row">
+              <span class="sk-name">Tally Prime</span>
+              <div class="sk-bar"><div class="sk-fill" data-w="78"></div></div>
+              <span class="sk-pct">78%</span>
+            </div>
+            <div class="sk-row">
+              <span class="sk-name">AutoCAD</span>
+              <div class="sk-bar"><div class="sk-fill" data-w="70"></div></div>
+              <span class="sk-pct">70%</span>
             </div>
           </div>
         </div>
@@ -273,62 +291,55 @@
     </div>
   </section>
 
-  <!-- ═══ EXPERIENCE ═══ -->
+  <!-- ════════════ EXPERIENCE ════════════ -->
   <section id="experience">
     <div class="container">
-      <div class="section-header reveal">
-        <div class="section-tag">/ Career Journey</div>
-        <h2 class="section-heading">Work Experience</h2>
-      </div>
+      <div class="sec-label">03 — Experience</div>
+      <h2 class="sec-heading reveal">Work <em>History</em></h2>
       <div class="exp-list">
 
         <div class="exp-card reveal">
-          <div class="exp-left">
-            <div class="exp-period">Aug 2022<br/>— Present</div>
-            <div class="exp-connector"><div class="exp-dot active"></div><div class="exp-line"></div></div>
+          <div class="exp-header">
+            <div class="exp-left-info">
+              <div class="exp-company">Elroi Software Solution</div>
+              <h3 class="exp-role">PHP Developer</h3>
+              <div class="exp-date">Aug 2022 — Present</div>
+            </div>
+            <span class="exp-badge current">● Current</span>
           </div>
-          <div class="exp-right">
-            <div class="exp-meta">
-              <span class="exp-co">Elroi Software Solution</span>
-              <span class="exp-badge current">Current</span>
-            </div>
-            <h3 class="exp-role">PHP Developer</h3>
-            <p class="exp-desc">Leading backend development for enterprise web products. Architecting scalable Laravel applications and building RESTful APIs consumed by dynamic front-ends.</p>
-            <div class="exp-projects">
-              <div class="exp-proj">
-                <span class="proj-dot"></span>
-                <div>
-                  <strong>Abacux Accounting Software</strong> — Cloud accounting platform with invoicing, billing, expense tracking & inventory.
-                </div>
-              </div>
-              <div class="exp-proj">
-                <span class="proj-dot"></span>
-                <div>
-                  <strong>CRM System</strong> — Full customer lifecycle management with analytics and interaction tracking.
-                </div>
+          <p class="exp-desc">Leading backend development of enterprise web applications. Building scalable Laravel APIs, managing relational databases, and integrating third-party services via RESTful APIs in a collaborative team environment.</p>
+          <div class="exp-projects">
+            <div class="ep-item">
+              <div class="ep-dot"></div>
+              <div class="ep-text">
+                <strong>Abacux Accounting Software</strong> — Intelligent cloud accounting with invoicing, billing, expense tracking and inventory management.
               </div>
             </div>
-            <div class="exp-tags">
-              <span>PHP</span><span>Laravel</span><span>PostgreSQL</span><span>MySQL</span><span>JavaScript</span><span>Web API</span>
+            <div class="ep-item">
+              <div class="ep-dot"></div>
+              <div class="ep-text">
+                <strong>CRM System</strong> — Full customer lifecycle management with analytics, interaction tracking and automated workflows.
+              </div>
             </div>
+          </div>
+          <div class="exp-techs">
+            <span>PHP</span><span>Laravel</span><span>PostgreSQL</span>
+            <span>MySQL</span><span>JavaScript</span><span>Web API</span>
           </div>
         </div>
 
         <div class="exp-card reveal">
-          <div class="exp-left">
-            <div class="exp-period">Feb 2022<br/>— Aug 2022</div>
-            <div class="exp-connector"><div class="exp-dot"></div></div>
+          <div class="exp-header">
+            <div class="exp-left-info">
+              <div class="exp-company">Get Innovative</div>
+              <h3 class="exp-role">Web Developer Intern</h3>
+              <div class="exp-date">Feb 2022 — Aug 2022</div>
+            </div>
+            <span class="exp-badge">Internship</span>
           </div>
-          <div class="exp-right">
-            <div class="exp-meta">
-              <span class="exp-co">Get Innovative</span>
-              <span class="exp-badge intern">Internship</span>
-            </div>
-            <h3 class="exp-role">Web Developer Intern</h3>
-            <p class="exp-desc">Collaborated with senior consultants on project budgeting, creation, and planning. Ensured projects stayed aligned with proposals while building strong fundamentals in full-stack development.</p>
-            <div class="exp-tags">
-              <span>PHP</span><span>HTML/CSS</span><span>JavaScript</span>
-            </div>
+          <p class="exp-desc">Collaborated with senior consultants on project budgeting, creation, and planning. Built strong full-stack fundamentals while ensuring projects stayed aligned with client proposals and delivery timelines.</p>
+          <div class="exp-techs">
+            <span>PHP</span><span>HTML / CSS</span><span>JavaScript</span>
           </div>
         </div>
 
@@ -336,51 +347,50 @@
     </div>
   </section>
 
-  <!-- ═══ PROJECTS ═══ -->
+  <!-- ════════════ PROJECTS ════════════ -->
   <section id="projects">
     <div class="container">
-      <div class="section-header reveal">
-        <div class="section-tag">/ Portfolio</div>
-        <h2 class="section-heading">Featured Projects</h2>
-      </div>
+      <div class="sec-label">04 — Projects</div>
+      <h2 class="sec-heading reveal">Featured <em>Work</em></h2>
       <div class="proj-grid">
 
         <div class="proj-card reveal">
           <div class="proj-num">01</div>
           <div class="proj-header">
             <div class="proj-icon">🧾</div>
-            <div class="proj-status">Live Product</div>
+            <div class="proj-badges">
+              <span>Live Product</span>
+              <span>Enterprise</span>
+            </div>
           </div>
           <h3 class="proj-title">Abacux Accounting Software</h3>
-          <p class="proj-desc">The first intelligent cloud accounting software built for dynamic businesses. An all-in-one platform packed with invoicing, billing, expense tracking, inventory management, and smart financial reporting.</p>
+          <p class="proj-desc">The first intelligent cloud accounting software built for dynamic businesses, owners, and accountants. An all-in-one platform packed with invoicing, billing, expense tracking, inventory management, and smart financial reporting.</p>
           <div class="proj-stack">
-            <span>JavaScript</span>
-            <span>PHP</span>
-            <span>Laravel</span>
-            <span>Web API</span>
-            <span>PostgreSQL</span>
+            <span>JavaScript</span><span>PHP</span><span>Laravel</span>
+            <span>Web API</span><span>PostgreSQL</span>
           </div>
-          <div class="proj-footer">
-            <div class="proj-arrow">View Details →</div>
+          <div class="proj-foot">
+            <span class="proj-link">View Project ↗</span>
           </div>
         </div>
 
-        <div class="proj-card reveal" style="--delay: 0.15s">
+        <div class="proj-card reveal">
           <div class="proj-num">02</div>
           <div class="proj-header">
             <div class="proj-icon">🤝</div>
-            <div class="proj-status">Enterprise</div>
+            <div class="proj-badges">
+              <span>Enterprise</span>
+              <span>Full-Stack</span>
+            </div>
           </div>
           <h3 class="proj-title">Customer Relationship Management</h3>
-          <p class="proj-desc">A full-featured CRM combining practices, strategies, and technology to manage customer interactions across the entire lifecycle. Includes analytics, interaction history, and automated workflows.</p>
+          <p class="proj-desc">A full-featured CRM system combining practices, strategies, and technology to manage customer interactions across the entire lifecycle. Includes analytics dashboards, interaction history tracking, and automated workflow management.</p>
           <div class="proj-stack">
-            <span>PHP</span>
-            <span>Laravel</span>
-            <span>JavaScript</span>
-            <span>MySQL</span>
+            <span>PHP</span><span>Laravel</span>
+            <span>JavaScript</span><span>MySQL</span>
           </div>
-          <div class="proj-footer">
-            <div class="proj-arrow">View Details →</div>
+          <div class="proj-foot">
+            <span class="proj-link">View Project ↗</span>
           </div>
         </div>
 
@@ -388,122 +398,111 @@
     </div>
   </section>
 
-  <!-- ═══ EDUCATION ═══ -->
+  <!-- ════════════ EDUCATION ════════════ -->
   <section id="education">
     <div class="container">
-      <div class="section-header reveal">
-        <div class="section-tag">/ Academic Background</div>
-        <h2 class="section-heading">Education</h2>
-      </div>
-      <div class="edu-timeline">
+      <div class="sec-label">05 — Education</div>
+      <h2 class="sec-heading reveal">Academic <em>Background</em></h2>
+      <div class="edu-grid">
 
-        <div class="edu-item reveal">
-          <div class="edu-year">2019 – 2021</div>
-          <div class="edu-card">
-            <div class="edu-deg">MSc Mathematics</div>
-            <div class="edu-school">Noorul Islam College of Arts and Science</div>
-            <div class="edu-loc">Kumaracoil, Kanyakumari</div>
-          </div>
+        <div class="edu-card reveal">
+          <span class="edu-yr">2019 – 2021</span>
+          <h3 class="edu-deg">MSc Mathematics</h3>
+          <p class="edu-school">Noorul Islam College of Arts and Science</p>
+          <p class="edu-loc">Kumaracoil, Kanyakumari</p>
         </div>
 
-        <div class="edu-item reveal">
-          <div class="edu-year">2016 – 2019</div>
-          <div class="edu-card">
-            <div class="edu-deg">BSc Mathematics</div>
-            <div class="edu-school">St. Johns College of Arts and Science</div>
-            <div class="edu-loc">Ammandivilai, Kanyakumari</div>
-          </div>
+        <div class="edu-card reveal">
+          <span class="edu-yr">2016 – 2019</span>
+          <h3 class="edu-deg">BSc Mathematics</h3>
+          <p class="edu-school">St. Johns College of Arts and Science</p>
+          <p class="edu-loc">Ammandivilai, Kanyakumari</p>
         </div>
 
-        <div class="edu-item reveal">
-          <div class="edu-year">2014 – 2016</div>
-          <div class="edu-card">
-            <div class="edu-deg">Higher Secondary (HSS)</div>
-            <div class="edu-school">St. Mary Goretty Higher Secondary School</div>
-            <div class="edu-loc">Manalikarai, Kanyakumari</div>
-          </div>
+        <div class="edu-card reveal">
+          <span class="edu-yr">2014 – 2016</span>
+          <h3 class="edu-deg">Higher Secondary (HSS)</h3>
+          <p class="edu-school">St. Mary Goretty Higher Secondary School</p>
+          <p class="edu-loc">Manalikarai, Kanyakumari</p>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ═══ CONTACT ═══ -->
+  <!-- ════════════ CONTACT ════════════ -->
   <section id="contact">
     <div class="container">
-      <div class="contact-wrapper">
-        <div class="contact-left reveal">
-          <div class="section-tag">/ Get In Touch</div>
-          <h2 class="section-heading">Let's Build<br /><em>Something Great</em></h2>
-          <p class="contact-desc">Have a project, opportunity, or just want to say hello? My inbox is always open.</p>
-          <div class="contact-links">
-            <a href="tel:9943605967" class="c-link">
-              <span class="c-link-icon">📱</span>
-              <div>
-                <div class="c-link-label">Phone</div>
-                <div class="c-link-val">+91 9943605967</div>
+      <div class="sec-label">06 — Contact</div>
+      <div class="contact-grid">
+
+        <div class="contact-left">
+          <h2 class="sec-heading reveal">Let's Build<br><em>Something Great</em></h2>
+          <p class="contact-p reveal">Open to full-time roles, freelance projects, and collaborations. Drop a message and let's create something amazing together.</p>
+          <div class="contact-links reveal">
+            <a href="tel:9943605967" class="clink">
+              <div class="clink-icon">📱</div>
+              <div class="clink-text">
+                <div class="clink-label">Phone</div>
+                <div class="clink-val">+91 9943605967</div>
               </div>
-              <span class="c-link-arrow">↗</span>
+              <span class="clink-arr">↗</span>
             </a>
-            <a href="mailto:surjithsbsam1999@gmail.com" class="c-link">
-              <span class="c-link-icon">✉️</span>
-              <div>
-                <div class="c-link-label">Email</div>
-                <div class="c-link-val">surjithsbsam1999@gmail.com</div>
+            <a href="mailto:surjithsbsam1999@gmail.com" class="clink">
+              <div class="clink-icon">✉</div>
+              <div class="clink-text">
+                <div class="clink-label">Email</div>
+                <div class="clink-val">surjithsbsam1999@gmail.com</div>
               </div>
-              <span class="c-link-arrow">↗</span>
+              <span class="clink-arr">↗</span>
             </a>
-            <div class="c-link no-hover">
-              <span class="c-link-icon">📍</span>
-              <div>
-                <div class="c-link-label">Location</div>
-                <div class="c-link-val">Kanya Kumari, Tamil Nadu 629166</div>
+            <div class="clink no-hover">
+              <div class="clink-icon">📍</div>
+              <div class="clink-text">
+                <div class="clink-label">Location</div>
+                <div class="clink-val">Kanya Kumari, TN — 629166</div>
               </div>
             </div>
           </div>
         </div>
+
         <div class="contact-right reveal">
-          <form class="contact-form" id="contactForm" onsubmit="handleForm(event)">
-            <div class="form-row">
-              <div class="form-field">
+          <form id="cForm" onsubmit="sendForm(event)">
+            <div class="cf-row two-col">
+              <div class="cf-group">
                 <label>Full Name</label>
                 <input type="text" placeholder="Your Name" required />
               </div>
-              <div class="form-field">
-                <label>Email</label>
-                <input type="email" placeholder="you@example.com" required />
+              <div class="cf-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="you@email.com" required />
               </div>
             </div>
-            <div class="form-field">
+            <div class="cf-group">
               <label>Subject</label>
               <input type="text" placeholder="What's this about?" required />
             </div>
-            <div class="form-field">
+            <div class="cf-group">
               <label>Message</label>
-              <textarea rows="5" placeholder="Tell me about your project or idea..." required></textarea>
+              <textarea rows="5" placeholder="Tell me about your project..." required></textarea>
             </div>
-            <button type="submit" class="form-submit" id="formBtn">
-              <span class="btn-text">Send Message</span>
-              <span class="btn-icon">→</span>
+            <button type="submit" class="cf-btn" id="cfBtn">
+              <span class="cf-btn-text">Send Message</span>
+              <span class="cf-btn-arrow">→</span>
             </button>
           </form>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer id="footer">
-    <div class="footer-top">
-      <div class="footer-brand">S.B. <em>Surjith</em></div>
-      <div class="footer-langs">
-        <span>English</span> · <span>Tamil</span> · <span>Malayalam</span>
-      </div>
-    </div>
-    <div class="footer-divider"></div>
-    <div class="footer-bottom">
-      <span>© 2025 S.B. Surjith · PHP Developer</span>
-      <span>Kanya Kumari, Tamil Nadu</span>
+    <div class="ft-inner">
+      <span class="ft-logo">SB<em>.</em>Surjith</span>
+      <span class="ft-copy">© 2025 S.B. Surjith · PHP Developer · Built with precision</span>
+      <span class="ft-langs">EN · TA · ML</span>
     </div>
   </footer>
 
