@@ -89,7 +89,7 @@ strong { color: var(--white); font-weight: 700; }
 }
 
 /* ═══ CURSOR — ANTIGRAVITY BLACK & BLUE ═══ */
-#cur {
+/* #cur {
   width: 10px;
   height: 10px;
   background: #000;
@@ -121,18 +121,18 @@ strong { color: var(--white); font-weight: 700; }
   box-shadow: 0 0 14px rgba(59,130,246,0.35);
   animation: ringGlow 2.8s ease-in-out infinite;
   transition: left 0.1s ease-out, top 0.1s ease-out, width .25s, height .25s;
-}
+} */
 /* Spinning dashed orbit */
-#curRing::before {
+/* #curRing::before {
   content: '';
   position: absolute;
   inset: -10px;
   border: 1px dashed rgba(59,130,246,0.3);
   border-radius: 50%;
   animation: orbitSpin 3.5s linear infinite;
-}
+} */
 /* Comet dot orbiting */
-#curRing::after {
+/* #curRing::after {
   content: '';
   position: absolute;
   top: 50%;
@@ -145,13 +145,13 @@ strong { color: var(--white); font-weight: 700; }
   box-shadow: 0 0 6px var(--blue), 0 0 12px var(--blue2);
   animation: cometOrbit 3.5s linear infinite;
   transform-origin: 0 0;
-}
-#curRing.big {
+} */
+/* #curRing.big {
   width: 58px;
   height: 58px;
   border-color: var(--blue2);
   box-shadow: 0 0 24px rgba(59,130,246,0.55), inset 0 0 18px rgba(59,130,246,0.07);
-}
+} */
 
 @keyframes curFloat {
   0%, 100% { box-shadow: 0 0 8px var(--blue), 0 0 20px rgba(59,130,246,0.5); transform: translate(-50%,-50%) translateY(0px); }
